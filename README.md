@@ -1,2 +1,2 @@
-# BurgerApp
-course_work
+# burger_app
+homework
