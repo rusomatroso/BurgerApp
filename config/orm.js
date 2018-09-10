@@ -14,7 +14,7 @@ function objToSql(obj) {
     var arr = [];
 
     for (var key in obj) {
-        var value = obj[key];0
+        var value = obj[key];
         if (Object.hasOwnProperty.call(obj, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
