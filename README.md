@@ -1,2 +1,1 @@
-# burger_app
-homework
+Burger sequelize app!

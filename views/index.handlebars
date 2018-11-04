@@ -1,22 +1,77 @@
-<h1>Eat da burger!</h1>
 
-<h2>Here are the burgers you can eat!</h2>
-dsd
-<ul>
-	{{#each burgers}}
-		{{> burgers/burger_block devoured}}
-	{{/each}}
-</ul>
+<div class="jumbotron text-center mt-4">
 
+			<h1>EAT dA BURGER!!!</h1>
 
-<h2>Add new burger</h2>
-<form class="add-burger">
+	<p class="lead"> The burger app of my dreams!    nah... ))) </p>
 
-	<div class="form-group">
-		<label for="bur">Burger Name:</label>
-		<input type="text" id="bur" name="name">
+</div>
+
+<div class="container">
+
+	<div class="row justify-content-center">
+
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
+			<div>
+				{{#each burgers}}
+					{{#unless this.devoured}}
+						<div class="row">
+							<div class="col-md-9">
+								<div class="uneaten">
+									<p class="text-center">
+										{{this.id}}. {{this.burger_name}}
+									</p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div>
+									<form action="/{{this.id}}" method="POST">
+										<input type="text" id="ca" name="customer" class="center-block">
+										<input type="hidden" name="devoured" value="true">
+										<button type="submit" class="center-block">Devour It!</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					{{/unless}}
+				{{/each}}
+			</div>
+		</div>
+		<div class="col-md-3">
+		</div>
 	</div>
+	<div class="row">
+<div class="col-md-3">
 
+</div>
+		<div class="col-md-6">
+			{{#each burgers}}
+				{{#if this.devoured}}
+					<div class="eaten">
+						<p class="text-center">
+							{{this.id}}. {{this.burger_name}} {{#if this.Customer.name}}(Eaten by {{this.Customer.name}}){{/if}}
+						</p>
+					</div>
+				{{/if}}
+			{{/each}}
+		</div>
+	<div class="col-md-3">
+	</div>
+</div>
 
-	<button type="submit">Submit</button>
-</form>
+  <div class="row text-center">
+    <div class="col-md-12">
+      <form class="create-update-form" action="/" method="POST">
+
+        <div class="form-group">
+          <input type="text" id="ca" name="name" class="center-block burger_field">
+        </div>
+
+        <button type="submit" class="center-block btn-lg btn-primary">Submit</button>
+	      <p class="text-center"><h4>Please type in the name of your burger and click "Submit"</h4></p>
+      </form>
+    </div>
+  </div>
+</div>
